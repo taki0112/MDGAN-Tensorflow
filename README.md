@@ -2,7 +2,7 @@
 ### : Mixture Density Generative Adversarial Networks
 
 <div align="center">
-  <img src="./assets/teaser.png" width=350px height=350px>
+  <img src="./assets/teaser.png" width=500px height=500px>
 </div>
 
 ## Reference

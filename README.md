@@ -5,6 +5,19 @@
   <img src="./assets/teaser.png" width=500px height=500px>
 </div>
 
+## Usage
+```python
+
+fake_img = generator(noise)
+
+real_logit = discriminator(real_img)
+fake_logit = discriminator(fake_img)
+
+g_loss = generator_loss(fake_logit)
+d_loss = discriminator_loss(real_logit, fake_logit)
+
+```
+
 ## Reference
 * [MDGAN-Pytorch](https://github.com/haihabi/MD-GAN)
 

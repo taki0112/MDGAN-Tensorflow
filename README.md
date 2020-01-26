@@ -1,7 +1,12 @@
 ## MDGAN &mdash; Simple TensorFlow Implementation [[Paper]](https://arxiv.org/abs/1811.00152)
 ### : Mixture Density Generative Adversarial Networks
 
+<div align="center">
+  <img src="./assets/teaser.png">
+</div>
 
+## Reference
+* [MDGAN-Pytorch](https://github.com/haihabi/MD-GAN)
 
 
 ## Author

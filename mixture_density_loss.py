@@ -33,6 +33,12 @@ def scaled_sigmoid(x, scale=5.0, shift=2.5):
 
     return x
 
+def scaled_tanh(x, scale=6.0):
+
+    x = scale * tf.tanh(x)
+
+    return x
+
 def simplex_coordinates(m):
     x = np.zeros([m, m + 1])  # Start with a zero matrix
     np.fill_diagonal(x, 1.0)  # fill diagonal with ones
@@ -106,12 +112,14 @@ def generator_loss(fake_logit):
 
     return loss
 
-def discriminator_loss(real_logit):
+def discriminator_loss(real_logit, fake_logit):
     lambda_1k = 0.02208706922829151
     epsilon = 1e-8
     bot_dim = 9
 
-    loss = tf.log(epsilon + lambda_1k - gaussian_likelihood_sum(real_logit, bot_dim))
-    loss = tf.reduce_mean(loss)
+    real_loss = tf.reduce_mean(-tf.log(epsilon + gaussian_likelihood_sum(real_logit, bot_dim)))
+    fake_loss = tf.reduce_mean(-tf.log(epsilon + lambda_1k - gaussian_likelihood_sum(fake_logit, bot_dim)))
+
+    loss = real_loss + fake_loss
 
     return loss
